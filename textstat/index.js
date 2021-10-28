@@ -7,8 +7,17 @@
  * 4. Count of words.
  * @param {object} event - Event class
  */
+ var valCharCount;
+ var valSpacesCount;
+ var valVowelsCount;
+ var valConsonantsCount;
+ var valWordsCount;
 function onStatisticsClicked(event) {
-    //TODO: Implement this function
+    valCharCount = event.length;
+    valSpacesCount = (event.split(" ").length - 1);
+    valVowelsCount = ((event.match(/[aeiou]/gi)).length);
+    valConsonantsCount = ((event.match(/[bcdfghjklmnpqrstvwxz]/gi)).length);
+    valWordsCount = (event.split(" ").length);
     console.log('onStatisticsClicked called');
 }
 
