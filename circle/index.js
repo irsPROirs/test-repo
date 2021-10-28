@@ -49,15 +49,18 @@ function init() {
      * @returns {number[]} - Coordinates in Array
      */
     function getCoordinates(time) {
-        // TODO: implement body of this function
-        return [0.0, 1.0];
+        var a = (Math.sin(new Date(time).getSeconds()*Math.PI/30));
+        var b = (Math.cos(new Date(time).getSeconds()*Math.PI/30));
+        console.log(a + ',' + b);
+        return [a, b];
+        
     }
 
     /**
      * Updates drawing on defined interval
      */
     function update() {
-        const time = Date.now() / 1000;
+        const time = Date.now();
         coordinates = getCoordinates(time);
         drawing.redraw(coordinates);
     }

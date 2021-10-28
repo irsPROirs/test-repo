@@ -12,12 +12,20 @@
  var valVowelsCount;
  var valConsonantsCount;
  var valWordsCount;
-function onStatisticsClicked(event) {
-    valCharCount = event.length;
-    valSpacesCount = (event.split(" ").length - 1);
-    valVowelsCount = ((event.match(/[aeiou]/gi)).length);
-    valConsonantsCount = ((event.match(/[bcdfghjklmnpqrstvwxz]/gi)).length);
-    valWordsCount = (event.split(" ").length);
+ var valOddWords;
+function onStatisticsClicked() {
+   
+    valCharCount = txt.length;
+    valSpacesCount = (txt.split(" ").length - 1);
+    valVowelsCount = ((txt.match(/[aeiou]/gi)).length);
+    valConsonantsCount = ((txt.match(/[bcdfghjklmnpqrstvwxz]/gi)).length);
+    valWordsCount = (txt.split(" ").length);
+    // document.getElementById("valCharCount").value = ;
+    document.getElementById("valCharCount").value = valCharCount;
+    document.getElementById("valSpacesCount").value = valSpacesCount;
+    document.getElementById("valVowelsCount").value = valVowelsCount;
+    document.getElementById("valConsonantsCount").value = valConsonantsCount;
+    document.getElementById("valWordsCount").value = valWordsCount;
     console.log('onStatisticsClicked called');
 }
 
@@ -26,8 +34,9 @@ function onStatisticsClicked(event) {
  * Removes all the even words in the given text (starting from 1) and displays result in corresponding field.
  * @param {object} event - Event class
  */
-function onRemoveWordsClicked(event) {
-    //TODO: Implement this function
+function onRemoveWordsClicked() {
+    valOddWords = txt.split(" ").filter(i=>!(i%2))
+    document.getElementById("valOddWords").value = valOddWords;
     console.log('onRemoveWordsClicked called');
 }
 
@@ -40,3 +49,4 @@ function init() {
 }
 
 document.addEventListener('DOMContentLoaded', init);
+
